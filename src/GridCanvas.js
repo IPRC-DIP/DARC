@@ -48,7 +48,7 @@ function GridCanvas({ size, matrix }) {
         ctx.fillRect(y, x, cellSize, cellSize);
       });
     });
-  }, [matrix, size]);
+  }, [matrix, size, cellSize, offsetX, offsetY]);
 
   return <canvas ref={canvasRef} width={size} height={size} />;
 }

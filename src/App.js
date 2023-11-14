@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { ThemeProvider, createTheme, Container, Divider, Typography, Grid, AppBar, Toolbar, Paper, Box, Chip } from '@mui/material';
+import { ThemeProvider, createTheme, Container, Divider, Grid, Chip } from '@mui/material';
 import TaskSelector from './TaskSelector';
 import InputOutput from './InputOutput';
 import CodeSnippet from "./CodeSnippet";
@@ -28,8 +28,6 @@ function App() {
   const [data, setData] = useState(defaultData);
   const [flow, setFlow] = useState(defaultFlow);
 
-  useEffect(() => { fetchTask(0); }, []);
-
   const fetchTask = useCallback(async (tid) => {
     console.log("hello world");
     const summary_url = `task_summary/${tid}.json`;
@@ -47,6 +45,8 @@ function App() {
       console.error("Error fetching data:", error);
     }
   }, []);
+
+  useEffect(() => { fetchTask(0); }, [fetchTask]);
 
   return (
     <ThemeProvider theme={theme}>

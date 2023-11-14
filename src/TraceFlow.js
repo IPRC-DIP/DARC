@@ -54,7 +54,7 @@ function TraceFlow({ flow, setFlow }) {
       const data = await response.json();
       setFlow(data);
     }
-  }, []);
+  }, [setFlow]);
 
   return (
     <Container maxWidth="lg" style={{ width: '100%', height: 800 }}>
